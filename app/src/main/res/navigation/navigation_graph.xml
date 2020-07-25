@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/fragmentOrderList">
+
+    <fragment
+        android:id="@+id/fragmentOrderList"
+        android:name="br.com.rodrigo.dm114.order.OrderListFragment"
+        android:label="fragment_products_list"
+        tools:layout="@layout/order_detail" >
+    </fragment>
+</navigation>
