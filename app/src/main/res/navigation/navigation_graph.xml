@@ -10,6 +10,6 @@
         android:id="@+id/fragmentOrder"
         android:name="br.com.rodrigo.dm114.order.OrderFragment"
         android:label="fragment_order"
-        tools:layout="@layout/order" >
+        tools:layout="@layout/fragment_order" >
     </fragment>
 </navigation>
