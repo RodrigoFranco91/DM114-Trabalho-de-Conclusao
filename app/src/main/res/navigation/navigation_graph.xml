@@ -4,12 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/fragmentOrderList">
+    app:startDestination="@id/fragmentOrder">
 
     <fragment
-        android:id="@+id/fragmentOrderList"
-        android:name="br.com.rodrigo.dm114.order.OrderListFragment"
-        android:label="fragment_products_list"
-        tools:layout="@layout/order_detail" >
+        android:id="@+id/fragmentOrder"
+        android:name="br.com.rodrigo.dm114.order.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/order" >
     </fragment>
 </navigation>
