@@ -6,6 +6,15 @@
     android:id="@+id/navigation_graph"
     app:startDestination="@id/fragmentOrder">
 
+    <action
+        android:id="@+id/action_showOrder"
+        app:destination="@id/fragmentOrder" >
+        <argument
+            app:nullable="true"
+            android:name="orderInfo"
+            app:argType="string"/>
+    </action>
+
     <fragment
         android:id="@+id/fragmentOrder"
         android:name="br.com.rodrigo.dm114.order.OrderFragment"

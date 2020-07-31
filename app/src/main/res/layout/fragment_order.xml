@@ -1,6 +1,13 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="orderViewModel"
+            type="br.com.rodrigo.dm114.order.OrderViewModel" />
+    </data>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -26,7 +33,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text=""
+                android:text="@{orderViewModel.order.username}"
                 app:layout_constraintEnd_toEndOf="@+id/textViewUsername"
                 app:layout_constraintStart_toStartOf="@+id/textViewUsername"
                 app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
@@ -66,7 +73,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text=""
+                android:text="@{orderViewModel.order.status}"
                 app:layout_constraintEnd_toEndOf="@+id/textViewStatus"
                 app:layout_constraintStart_toStartOf="@+id/textViewStatus"
                 app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
@@ -86,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text=""
+                android:text="@{orderViewModel.order.productCode}"
                 app:layout_constraintEnd_toEndOf="@+id/textViewProductCode"
                 app:layout_constraintStart_toStartOf="@+id/textViewProductCode"
                 app:layout_constraintTop_toBottomOf="@+id/textViewProductCode" />

@@ -21,6 +21,7 @@ import kotlin.collections.ArrayList
 private const val TAG = "OrderRepository"
 private const val COLLECTION = "orders"
 private const val FIELD_USER_NAME = "userName"
+private const val FIELD_ID = "id"
 private const val FIELD_USER_ID = "userId"
 private const val FIELD_STATUS = "status"
 private const val FIELD_PRODUCT_CODE = "productCode"
@@ -49,7 +50,7 @@ object  OrderRepository {
         val currentDateTime = now()
         val dataEmTexto = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
 
-        order.data = SimpleDateFormat("yyyy-MM-dd HH:mm").parse(dataEmTexto)
+        //order.data = SimpleDateFormat("yyyy-MM-dd HH:mm").parse(dataEmTexto)
         document.set(order)
         return document.id
     }
@@ -107,5 +108,6 @@ object  OrderRepository {
             }
         return liveOrder
     }
+
 }
 

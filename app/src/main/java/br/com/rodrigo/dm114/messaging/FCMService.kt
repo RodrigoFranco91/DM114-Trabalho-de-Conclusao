@@ -15,6 +15,7 @@ import br.com.rodrigo.dm114.persistence.OrderRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import org.json.JSONObject
 
 
 private const val TAG = "FCMService"
@@ -27,16 +28,17 @@ class FCMService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         remoteMessage.data.isNotEmpty().let {
-            val menssagem = remoteMessage.data.get("orderDetail")!!
             Log.d(TAG, "Payload: " + remoteMessage.data)
-            if (remoteMessage.data.containsKey("orderDetail") && (menssagem.contains("%rflpos@gmail.com%"))) {
-                sendOrderNotification(remoteMessage.data.get("orderDetail")!!)
+            if (remoteMessage.data.containsKey("orderDetail")) {
+                var objetoMensagem = JSONObject(remoteMessage.data.get("orderDetail")!!)
+                var emailMensagem = objetoMensagem.optString("username")
+                val emailLogado = FirebaseAuth.getInstance().currentUser!!.email
+                if(emailMensagem.equals(emailLogado)){
+                    sendOrderNotification(remoteMessage.data.get("orderDetail")!!)
+                }
             }
-
         }
     }
-
-
 
     private fun sendOrderNotification(orderInfo: String) {
         val intent = Intent(this, MainActivity::class.java)

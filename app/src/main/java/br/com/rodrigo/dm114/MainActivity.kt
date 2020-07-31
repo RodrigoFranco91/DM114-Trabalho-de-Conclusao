@@ -8,12 +8,26 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.navigation.findNavController
+import br.com.rodrigo.dm114.R.id
+import br.com.rodrigo.dm114.order.OrderFragmentDirections
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+
+    private fun showOrder(orderInfo: String) {
+        this.findNavController(id.nav_host_fragment).navigate(OrderFragmentDirections.actionShowOrder(orderInfo))
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        if (intent.hasExtra("orderDetail")) {
+            showOrder(intent.getStringExtra("orderDetail")!!)
+        }
+        super.onNewIntent(intent)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +37,9 @@ class MainActivity : AppCompatActivity() {
             val name = user.displayName
             val email = user.email
             setContentView(R.layout.activity_main)
+            if (this.intent.hasExtra("orderDetail")) {
+                showOrder(intent.getStringExtra("orderDetail")!!)
+            }
         } else {
             val providers = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
             startActivityForResult(
@@ -54,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.nav_sign_out -> {
+            id.nav_sign_out -> {
                 AuthUI.getInstance()
                     .signOut(this)
                     .addOnCompleteListener {
