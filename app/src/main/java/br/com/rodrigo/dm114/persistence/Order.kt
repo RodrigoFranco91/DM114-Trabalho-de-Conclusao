@@ -11,6 +11,6 @@ data class Order(
     var username: String? = null,
     var status: String? = null,
     var productCode: String? = null,
-   // var data: Date? = null,
+    var data: String? = null,
     var orderId: Long? = null
 )

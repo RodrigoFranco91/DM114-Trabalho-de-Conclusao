@@ -20,5 +20,16 @@
         android:name="br.com.rodrigo.dm114.order.OrderFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_order" >
+        <action
+            android:id="@+id/action_show_orderList"
+            app:destination="@id/fragmentListOrder" >
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentListOrder"
+        android:name="br.com.rodrigo.dm114.order.OrderListFragment"
+        android:label="fragment_list_order"
+        tools:layout="@layout/fragment_list_order" >
     </fragment>
 </navigation>

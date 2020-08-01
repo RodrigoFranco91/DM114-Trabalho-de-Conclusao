@@ -53,7 +53,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text=""
+                app:orderId="@{orderViewModel.order.orderId}"
                 app:layout_constraintEnd_toEndOf="@+id/textViewOrderId"
                 app:layout_constraintStart_toStartOf="@+id/textViewOrderId"
                 app:layout_constraintTop_toBottomOf="@+id/textViewOrderId" />
@@ -93,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@{orderViewModel.order.productCode}"
+                app:orderId="@{orderViewModel.order.orderId}"
                 app:layout_constraintEnd_toEndOf="@+id/textViewProductCode"
                 app:layout_constraintStart_toStartOf="@+id/textViewProductCode"
                 app:layout_constraintTop_toBottomOf="@+id/textViewProductCode" />
