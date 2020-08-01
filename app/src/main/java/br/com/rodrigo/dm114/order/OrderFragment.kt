@@ -25,17 +25,16 @@ class OrderFragment : Fragment() {
         inflater.inflate(R.menu.list_order_menu, menu)
     }
 
-
     private val orderViewModel: OrderViewModel by lazy {
         ViewModelProviders.of(this).get(OrderViewModel::class.java)
     }
-
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentOrderBinding.inflate(inflater)
         binding.setLifecycleOwner(this)
         binding.orderViewModel = orderViewModel
+
 
         if (this.arguments != null) {
 
@@ -52,10 +51,5 @@ class OrderFragment : Fragment() {
         }
         setHasOptionsMenu(true)
         return binding.root
-    }
-
-
-    private fun ShowOrderList() {
-        this.findNavController().navigate(OrderFragmentDirections.actionShowOrderList())
     }
 }

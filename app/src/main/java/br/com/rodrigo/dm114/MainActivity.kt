@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import br.com.rodrigo.dm114.R.id
 import br.com.rodrigo.dm114.order.OrderFragmentDirections
+import br.com.rodrigo.dm114.order.OrderListFragment
 import br.com.rodrigo.dm114.order.OrderListFragmentDirections
 
 
@@ -75,9 +76,6 @@ class MainActivity : AppCompatActivity() {
     private fun showOrder(orderInfo: String) {
         this.findNavController(id.nav_host_fragment).navigate(OrderFragmentDirections.actionShowOrder(orderInfo))
     }
-
-
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             id.nav_sign_out -> {
@@ -89,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             id.nav_list -> {
-                this.findNavController(id.nav_host_fragment).navigate(OrderFragmentDirections.actionShowOrderList())
+                this.findNavController(id.nav_host_fragment).navigate(OrderFragmentDirections.actionShowList())
                 true
             }
             else -> super.onOptionsItemSelected(item)

@@ -12,7 +12,6 @@ import br.com.rodrigo.dm114.databinding.FragmentListOrderBinding
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import br.com.rodrigo.dm114.R
-import br.com.rodrigo.dm114.order.OrderFragmentDirections.actionShowOrderList
 import com.google.firebase.analytics.FirebaseAnalytics
 
 
@@ -29,13 +28,12 @@ class OrderListFragment : Fragment(){
         binding.setLifecycleOwner(this)
         binding.orderListViewModel = orderListViewModel
         val itemDecor = DividerItemDecoration(getContext(), VERTICAL);
+
         binding.rcvOrders.addItemDecoration(itemDecor)
         binding.rcvOrders.adapter = OrderAdapter(OrderAdapter.OrderClickListener {
-            this.findNavController().navigate(OrderFragment)
+            this.findNavController().navigate(OrderFragmentDirections.actionShowList())
         })
         return binding.root
     }
-
-
 }
 

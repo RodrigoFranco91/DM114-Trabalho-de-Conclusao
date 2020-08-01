@@ -8,13 +8,9 @@
             name="orderListViewModel"
             type="br.com.rodrigo.dm114.order.OrderListViewModel" />
     </data>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvOrders"
@@ -33,7 +29,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:ordersList="@{orderListViewModel.orders}"
                 tools:listitem="@layout/item_order" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
 </layout>
