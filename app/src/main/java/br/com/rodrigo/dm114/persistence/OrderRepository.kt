@@ -1,18 +1,13 @@
 package br.com.rodrigo.dm114.persistence
 
-
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
-
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.toObject
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
 import java.time.LocalDateTime.now
 import java.time.format.DateTimeFormatter
 import java.util.*

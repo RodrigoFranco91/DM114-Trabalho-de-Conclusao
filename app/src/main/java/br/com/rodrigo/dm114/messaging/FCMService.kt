@@ -10,8 +10,6 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import br.com.rodrigo.dm114.MainActivity
 import br.com.rodrigo.dm114.R
-import br.com.rodrigo.dm114.persistence.Order
-import br.com.rodrigo.dm114.persistence.OrderRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -20,7 +18,6 @@ import org.json.JSONObject
 
 private const val TAG = "FCMService"
 class FCMService : FirebaseMessagingService() {
-
 
     override fun onNewToken(token: String) {
         Log.d(TAG, "FCM token: $token")

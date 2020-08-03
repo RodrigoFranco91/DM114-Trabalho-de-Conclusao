@@ -6,16 +6,12 @@ import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import br.com.rodrigo.dm114.R
 import br.com.rodrigo.dm114.databinding.FragmentOrderBinding
 import br.com.rodrigo.dm114.persistence.Order
 import br.com.rodrigo.dm114.persistence.OrderRepository
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
-
-
 
 class OrderFragment : Fragment() {
 
@@ -34,7 +30,6 @@ class OrderFragment : Fragment() {
         binding = FragmentOrderBinding.inflate(inflater)
         binding.setLifecycleOwner(this)
         binding.orderViewModel = orderViewModel
-
 
         if (this.arguments != null) {
 
