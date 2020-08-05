@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+
 import br.com.rodrigo.dm114.R
 import br.com.rodrigo.dm114.databinding.FragmentOrderDetailBinding
 import br.com.rodrigo.dm114.persistence.OrderRepository
@@ -37,6 +40,16 @@ class OrderDetailFragment : Fragment() {
         return binding.root
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.nav_delete -> {
+                binding.orderDetailViewModel?.deleteOrder()
+                this.findNavController().navigate(OrderDetailFragmentDirections.actionShowList())
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.delete_order_menu, menu)

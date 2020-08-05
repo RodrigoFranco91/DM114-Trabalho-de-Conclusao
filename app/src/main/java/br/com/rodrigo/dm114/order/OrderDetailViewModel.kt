@@ -23,5 +23,10 @@ class OrderDetailViewModel(private val id: String?) : ViewModel(){
         order = OrderRepository.getProductById(id)
     }
 
-
+    fun deleteOrder() {
+        if (order.value?.id != null ) {
+            OrderRepository.deleteOrder(order.value!!.id!!)
+            order.value = null
+        }
+    }
 }
