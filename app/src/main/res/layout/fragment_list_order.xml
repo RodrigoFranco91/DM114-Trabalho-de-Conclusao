@@ -29,6 +29,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:ordersList="@{orderListViewModel.orders}"
                 tools:listitem="@layout/item_order" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

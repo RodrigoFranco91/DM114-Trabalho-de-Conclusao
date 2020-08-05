@@ -59,7 +59,7 @@ object  OrderRepository {
         val liveOrders = MutableLiveData<List<Order>>()
         firebaseFirestore.collection(COLLECTION)
             .whereEqualTo(FIELD_USER_ID, firebaseAuth.uid)
-            .orderBy(FIELD_DATA, Query.Direction.ASCENDING)
+            .orderBy(FIELD_DATA, Query.Direction.DESCENDING)
             .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
                 if (firebaseFirestoreException != null) {
                     Log.w(TAG, "Listen failed.", firebaseFirestoreException)
@@ -104,5 +104,28 @@ object  OrderRepository {
         return liveOrder
     }
 
+    fun getProductById(id: String): MutableLiveData<Order> {
+        val liveOrder: MutableLiveData<Order> = MutableLiveData()
+        firebaseFirestore.collection(COLLECTION)
+            .whereEqualTo(FIELD_ID,id)
+            .whereEqualTo(FIELD_USER_ID, firebaseAuth.uid)
+            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
+                if (firebaseFirestoreException != null) {
+                    Log.w(TAG, "Listen failed.", firebaseFirestoreException)
+                    return@addSnapshotListener}
+                if (querySnapshot != null && !querySnapshot.isEmpty) {
+                    val orders = ArrayList<Order>()
+                    querySnapshot.forEach {
+                        val order = it.toObject<Order>()
+                        order.id = it.id
+                        orders.add(order)
+                    }
+                    liveOrder.postValue(orders[0])
+                } else {
+                    Log.d(TAG, "No order has been found")
+                }
+            }
+        return liveOrder
+    }
 }
 

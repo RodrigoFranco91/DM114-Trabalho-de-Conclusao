@@ -32,8 +32,11 @@ class OrderListFragment : Fragment(){
 
         binding.rcvOrders.addItemDecoration(itemDecor)
         binding.rcvOrders.adapter = OrderAdapter(OrderAdapter.OrderClickListener {
-            showList()
+            this.findNavController()
+                .navigate(OrderListFragmentDirections.actionShowDetail(it.id!!, it.productCode!!))
         })
+
+
         return binding.root
     }
 }

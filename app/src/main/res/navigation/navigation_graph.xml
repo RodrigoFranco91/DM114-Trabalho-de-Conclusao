@@ -31,5 +31,24 @@
         android:name="br.com.rodrigo.dm114.order.OrderListFragment"
         android:label="fragment_list_order"
         tools:layout="@layout/fragment_list_order" >
+        <action
+            android:id="@+id/action_show_detail"
+            app:destination="@id/fragmentOrderDetail" >
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentOrderDetail"
+        android:name="br.com.rodrigo.dm114.order.OrderDetailFragment"
+        android:label="fragment_order_detail"
+        tools:layout="@layout/fragment_order_detail" >
+        <argument
+            android:name="id"
+            app:nullable="true"
+            app:argType="string" />
+        <argument
+            android:name="code"
+            app:nullable="true"
+            app:argType="string" />
     </fragment>
 </navigation>
