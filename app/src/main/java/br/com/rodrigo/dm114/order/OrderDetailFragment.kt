@@ -12,6 +12,8 @@ import br.com.rodrigo.dm114.databinding.FragmentOrderDetailBinding
 import br.com.rodrigo.dm114.persistence.OrderRepository
 import br.com.rodrigo.dm114.product.ProductViewModel
 import br.com.rodrigo.dm114.product.ProductViewModelFactory
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.remoteconfig.ktx.remoteConfig
 
 
 class OrderDetailFragment : Fragment() {
@@ -36,7 +38,9 @@ class OrderDetailFragment : Fragment() {
         binding.productViewModel= ViewModelProviders.of(
             this, productViewModelFactory).get(ProductViewModel::class.java)
 
-        setHasOptionsMenu(true)
+        val remoteConfig = Firebase.remoteConfig
+        setHasOptionsMenu(remoteConfig.getBoolean("delete_detail_view"))
+
         return binding.root
     }
 
