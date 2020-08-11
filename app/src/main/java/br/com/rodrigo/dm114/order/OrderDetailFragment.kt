@@ -12,6 +12,7 @@ import br.com.rodrigo.dm114.databinding.FragmentOrderDetailBinding
 import br.com.rodrigo.dm114.persistence.OrderRepository
 import br.com.rodrigo.dm114.product.ProductViewModel
 import br.com.rodrigo.dm114.product.ProductViewModelFactory
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
 
@@ -48,6 +49,10 @@ class OrderDetailFragment : Fragment() {
         return when (item.itemId) {
             R.id.nav_delete -> {
                 binding.orderDetailViewModel?.deleteOrder()
+                val bundle = Bundle()
+                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id)
+                val firebaseAnalytics = FirebaseAnalytics.getInstance(this.requireContext()!!)
+                firebaseAnalytics.logEvent("Delete_order", bundle)
                 this.findNavController().navigate(OrderDetailFragmentDirections.actionShowList())
                 true
             }

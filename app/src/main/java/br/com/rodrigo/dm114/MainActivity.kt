@@ -17,6 +17,7 @@ import br.com.rodrigo.dm114.order.OrderListFragment
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.FirebaseApp
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
@@ -78,6 +79,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showList() {
+        val firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+        firebaseAnalytics.logEvent("List_Orders", null)
         this.findNavController(id.nav_host_fragment).navigate(OrderFragmentDirections.actionShowList())
     }
 
