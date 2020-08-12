@@ -4,18 +4,14 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-
 import br.com.rodrigo.dm114.R
 import br.com.rodrigo.dm114.databinding.FragmentOrderDetailBinding
-import br.com.rodrigo.dm114.persistence.OrderRepository
 import br.com.rodrigo.dm114.product.ProductViewModel
 import br.com.rodrigo.dm114.product.ProductViewModelFactory
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.ktx.remoteConfig
-
 
 class OrderDetailFragment : Fragment() {
 

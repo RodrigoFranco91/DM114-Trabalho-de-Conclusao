@@ -12,8 +12,6 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import br.com.rodrigo.dm114.R.id
 import br.com.rodrigo.dm114.order.OrderFragmentDirections
-import br.com.rodrigo.dm114.order.OrderListFragment
-
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.FirebaseApp
