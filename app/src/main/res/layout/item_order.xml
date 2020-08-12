@@ -59,7 +59,7 @@
             android:paddingTop="12dip"
             android:paddingEnd="8dip"
             android:paddingBottom="12dip"
-            android:text="@{order.data}"
+            android:text="@{order.data.substring(0,16)}"
             android:textAlignment="center"
             android:textSize="14sp"
             android:textStyle="normal"

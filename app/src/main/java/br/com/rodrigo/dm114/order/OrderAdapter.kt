@@ -33,7 +33,7 @@ class OrderAdapter(val onOrderClickListener: OrderClickListener) :
             holder.itemView.setOnLongClickListener {
                 val bundle = Bundle()
                 bundle.putString(FirebaseAnalytics.Param.ITEM_ID, order.id)
-                firebaseAnalytics.logEvent("LongClick", bundle)
+                firebaseAnalytics.logEvent("Long_Click_Order", bundle)
                 true
             }
     }

@@ -43,7 +43,7 @@ object  OrderRepository {
         }
 
         val currentDateTime = now()
-        val dataEmTexto = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))
+        val dataEmTexto = currentDateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))
         order.data = dataEmTexto
         order.id = document.id
         document.set(order)
